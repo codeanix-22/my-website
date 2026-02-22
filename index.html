@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Codeanix — The Avengers of Digital Innovation. Premium cyberpunk digital agency offering Web Development, AI Automation, Social Media Marketing, Game Development, Video Editing, SEO/SMO, and n8n Workflows.">
+<meta name="keywords" content="digital agency, web development, AI automation, social media marketing, game development, SEO, video editing, n8n workflows">
+<meta name="author" content="Codeanix">
+<meta property="og:title" content="Codeanix — Forging the Future">
+<meta property="og:description" content="Premium digital agency. We build, market, and automate your success.">
+<meta property="og:type" content="website">
+<title>Codeanix — Forging the Future in Digital Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neon-cyan: #00f5ff;
+    --neon-magenta: #ff00aa;
+    --neon-gold: #ffd700;
+    --neon-green: #39ff14;
+    --neon-purple: #bf00ff;
+    --dark-void: #020408;
+    --dark-panel: #050d18;
+    --dark-card: #0a1628;
+    --dark-border: #0f2040;
+    --text-primary: #e8f4fd;
+    --text-secondary: #7eb8d4;
+    --text-dim: #3a5f7a;
+    --glow-cyan: 0 0 20px rgba(0,245,255,0.5), 0 0 60px rgba(0,245,255,0.2);
+    --glow-magenta: 0 0 20px rgba(255,0,170,0.5), 0 0 60px rgba(255,0,170,0.2);
+    --glow-gold: 0 0 20px rgba(255,215,0,0.5), 0 0 60px rgba(255,215,0,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark-void);
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 20px; height: 20px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: screen;
+  }
+  .cursor-dot {
+    position: fixed;
+    width: 6px; height: 6px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: var(--glow-cyan);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark-void); }
+  ::-webkit-scrollbar-thumb { background: var(--neon-cyan); border-radius: 2px; }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* GRID LINES */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed; top: 0; width: 100%;
+    z-index: 1000;
+    padding: 0 40px;
+    height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(2,4,8,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,245,255,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--neon-cyan);
+    transition: width 0.3s;
+    box-shadow: var(--glow-cyan);
+  }
+
+  .nav-links a:hover { color: var(--neon-cyan); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    padding: 8px 24px;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan) !important;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    transition: all 0.3s !important;
+    cursor: pointer;
+  }
+
+  .nav-cta:hover {
+    background: var(--neon-cyan) !important;
+    color: var(--dark-void) !important;
+    box-shadow: var(--glow-cyan);
+  }
+
+  .nav-cta::after { display: none !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--neon-cyan); transition: all 0.3s; }
+
+  /* HERO SECTION */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 20% 50%, rgba(0,245,255,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 30%, rgba(255,0,170,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 80%, rgba(191,0,255,0.04) 0%, transparent 50%),
+      var(--dark-void);
+  }
+
+  .hero-particles {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--neon-cyan);
+    border-radius: 50%;
+    animation: float-particle linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes float-particle {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-20px) translateX(var(--drift)); opacity: 0; }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    max-width: 1000px;
+    padding: 0 40px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--neon-cyan);
+    border: 1px solid rgba(0,245,255,0.3);
+    padding: 6px 20px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-border {
+    0%, 100% { border-color: rgba(0,245,255,0.3); }
+    50% { border-color: rgba(0,245,255,0.8); box-shadow: var(--glow-cyan); }
+  }
+
+  .hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    animation: fade-up 1s ease both;
+  }
+
+  .hero-title .line1 {
+    display: block;
+    background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 50%, #ffffff 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--neon-magenta), var(--neon-gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-top: 8px;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    line-height: 1.6;
+    animation: fade-up 1s 0.3s ease both;
+  }
+
+  .hero-tagline span { color: var(--neon-gold); font-weight: 600; }
+
+  .hero-actions {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    animation: fade-up 1s 0.6s ease both;
+  }
+
+  .btn-primary {
+    padding: 16px 48px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    color: var(--dark-void);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-primary:hover { 
+    box-shadow: 0 0 40px rgba(0,245,255,0.4), 0 0 80px rgba(255,0,170,0.2);
+    transform: translateY(-2px);
+  }
+  .btn-primary:hover::before { opacity: 1; }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-secondary {
+    padding: 16px 48px;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--neon-magenta);
+    color: var(--neon-magenta);
+    box-shadow: var(--glow-magenta);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex; gap: 60px; justify-content: center;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    animation: fade-up 1s 0.9s ease both;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* SECTION STYLES */
+  section {
+    padding: 120px 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .section-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+
+  .section-title .accent { color: var(--neon-magenta); }
+
+  .section-line {
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    margin: 20px auto 0;
+    box-shadow: var(--glow-cyan);
+  }
+
+  /* ABOUT */
+  #about { background: linear-gradient(180deg, var(--dark-void) 0%, var(--dark-panel) 50%, var(--dark-void) 100%); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 500px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .about-hex {
+    position: absolute;
+    border: 1px solid rgba(0,245,255,0.15);
+    border-radius: 4px;
+    animation: rotate-hex linear infinite;
+  }
+
+  .about-hex-1 { width: 300px; height: 300px; animation-duration: 20s; }
+  .about-hex-2 { width: 220px; height: 220px; animation-duration: 15s; animation-direction: reverse; border-color: rgba(255,0,170,0.15); }
+  .about-hex-3 { width: 140px; height: 140px; animation-duration: 10s; border-color: rgba(255,215,0,0.2); }
+
+  @keyframes rotate-hex {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .about-core {
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, rgba(0,245,255,0.3), rgba(0,245,255,0.05));
+    border-radius: 50%;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: var(--glow-cyan), inset 0 0 30px rgba(0,245,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+    animation: pulse-core 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-core {
+    0%, 100% { transform: scale(1); box-shadow: var(--glow-cyan); }
+    50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(0,245,255,0.8); }
+  }
+
+  .about-core-text {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--neon-cyan);
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+
+  .about-text h2 span { color: var(--neon-cyan); }
+
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .about-pillars {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px;
+  }
+
+  .pillar {
+    padding: 16px 20px;
+    border: 1px solid rgba(0,245,255,0.1);
+    border-radius: 4px;
+    background: rgba(0,245,255,0.02);
+    transition: all 0.3s;
+  }
+
+  .pillar:hover {
+    border-color: var(--neon-cyan);
+    background: rgba(0,245,255,0.05);
+    transform: translateY(-2px);
+  }
+
+  .pillar-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .pillar h4 { font-family: 'Orbitron', monospace; font-size: 0.75rem; letter-spacing: 2px; color: var(--neon-gold); margin-bottom: 4px; }
+  .pillar p { font-size: 0.85rem; color: var(--text-dim); margin: 0; }
+
+  /* SERVICES */
+  #services { background: var(--dark-panel); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--dark-card);
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s;
+    border: 1px solid var(--dark-border);
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--card-accent, var(--neon-cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+    box-shadow: 0 0 20px var(--card-accent, var(--neon-cyan));
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.03) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover { transform: translateY(-4px); background: #0d1f3a; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover::after { opacity: 1; }
+
+  .card-scene {
+    height: 180px;
+    background: var(--card-bg, linear-gradient(135deg, rgba(0,245,255,0.05), rgba(255,0,170,0.05)));
+    border-radius: 4px;
+    margin-bottom: 30px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    font-size: 5rem;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .card-scene .scene-glow {
+    position: absolute; inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: var(--card-glow, radial-gradient(circle at center, rgba(0,245,255,0.08), transparent 70%));
+  }
+
+  .service-card:hover .scene-glow { opacity: 1; }
+
+  .card-scene .scene-icon {
+    position: relative; z-index: 2;
+    animation: float-icon 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px var(--card-accent, rgba(0,245,255,0.8)));
+  }
+
+  @keyframes float-icon {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+  }
+
+  .scene-particles {
+    position: absolute; inset: 0;
+    pointer-events: none;
+  }
+
+  .scene-dot {
+    position: absolute;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--card-accent, var(--neon-cyan));
+    animation: scene-float linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes scene-float {
+    0% { transform: translateY(100%) translateX(0); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-100%) translateX(var(--sdrift, 20px)); opacity: 0; }
+  }
+
+  .card-number {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--card-accent, var(--neon-cyan));
+    letter-spacing: 1px;
+  }
+
+  .card-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .card-features {
+    list-style: none;
+    margin-bottom: 30px;
+  }
+
+  .card-features li {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .card-features li::before {
+    content: '›';
+    position: absolute; left: 0;
+    color: var(--card-accent, var(--neon-cyan));
+    font-weight: bold;
+  }
+
+  .service-card:hover .card-features li { color: var(--text-secondary); }
+
+  .card-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--card-accent, var(--neon-cyan));
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none; background: none;
+    transition: gap 0.3s;
+    padding: 0;
+  }
+
+  .card-cta:hover { gap: 16px; }
+  .card-cta .arrow { transition: transform 0.3s; }
+  .card-cta:hover .arrow { transform: translateX(4px); }
+
+  /* PRODUCTS */
+  #products {
+    background: var(--dark-void);
+    position: relative;
+  }
+
+  .products-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+  }
+
+  .products-intro p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: 24px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .product-card {
+    position: relative;
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    padding: 40px 32px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s;
+    group: product;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute; inset: -1px;
+    background: linear-gradient(135deg, var(--p-c1, var(--neon-cyan)), var(--p-c2, var(--neon-magenta)));
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: -1;
+  }
+
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .product-card:hover::before { opacity: 0.1; }
+
+  .product-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(0,245,255,0.1);
+    color: var(--neon-cyan);
+    border: 1px solid rgba(0,245,255,0.2);
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .product-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+  .product-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .product-price {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--neon-gold);
+  }
+
+  .product-price span {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+  }
+
+  .product-cta {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--dark-border);
+    color: var(--text-secondary);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .product-card:hover .product-cta {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: inset 0 0 20px rgba(0,245,255,0.05);
+  }
+
+  /* CONTACT */
+  #contact { background: var(--dark-panel); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .contact-info h2 span { color: var(--neon-cyan); }
+
+  .contact-info p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1rem;
+  }
+
+  .contact-detail {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .contact-detail-icon {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    background: rgba(0,245,255,0.03);
+  }
+
+  .contact-detail-text { font-size: 0.9rem; color: var(--text-secondary); }
+  .contact-detail-label { font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px; }
+
+  /* FORM */
+  .contact-form-wrap {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    padding: 50px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-form-wrap::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-gold));
+  }
+
+  .form-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    padding: 12px 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300f5ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .form-group select option {
+    background: var(--dark-card);
+    color: var(--text-primary);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 0 3px rgba(0,245,255,0.08);
+  }
+
+  .phone-wrap, .budget-wrap {
+    display: flex; gap: 8px;
+  }
+
+  .phone-wrap select { width: 140px; flex-shrink: 0; }
+  .phone-wrap input { flex: 1; }
+  .budget-wrap select { width: 80px; flex-shrink: 0; }
+  .budget-wrap input { flex: 1; }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    border: none;
+    border-radius: 4px;
+    color: var(--dark-void);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-submit:hover {
+    box-shadow: 0 0 40px rgba(0,245,255,0.4);
+    transform: translateY(-2px);
+  }
+
+  .form-submit:active { transform: translateY(0); }
+
+  .form-submit .submit-text { position: relative; z-index: 1; }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .form-success .success-icon { font-size: 4rem; margin-bottom: 20px; }
+  .form-success h3 { font-family: 'Orbitron', monospace; color: var(--neon-green); margin-bottom: 12px; font-size: 1.4rem; }
+  .form-success p { color: var(--text-secondary); }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(2,4,8,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.active { display: flex; animation: fade-in 0.3s ease; }
+
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+  .modal-box {
+    background: var(--dark-card);
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 8px;
+    padding: 50px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slide-up 0.3s ease;
+  }
+
+  @keyframes slide-up { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  .modal-box::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-gold));
+  }
+
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    background: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .modal-close:hover { border-color: var(--neon-magenta); color: var(--neon-magenta); }
+
+  .modal-header { margin-bottom: 36px; }
+  .modal-header .modal-tag { font-family: 'Share Tech Mono'; font-size: 0.7rem; color: var(--neon-cyan); letter-spacing: 4px; margin-bottom: 12px; }
+  .modal-header h2 { font-family: 'Orbitron', monospace; font-size: 1.8rem; font-weight: 900; line-height: 1.3; }
+  .modal-header h2 span { color: var(--neon-magenta); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark-panel);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    padding: 60px 0 30px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .footer-brand p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--neon-cyan);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--text-secondary); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.04);
+    padding-top: 30px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .footer-bottom p { font-size: 0.8rem; color: var(--text-dim); }
+
+  .social-links {
+    display: flex; gap: 12px;
+  }
+
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s;
+    color: var(--text-dim);
+  }
+
+  .social-link:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: var(--glow-cyan); }
+
+  /* MOBILE NAV */
+  .mobile-menu {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(2,4,8,0.98);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .mobile-menu.active { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    color: var(--text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover { color: var(--neon-cyan); }
+
+  /* ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SCAN LINE */
+  .scan-line {
+    position: fixed; top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    animation: scan 8s linear infinite;
+    pointer-events: none; z-index: 1001; opacity: 0.3;
+  }
+
+  @keyframes scan {
+    0% { top: 0; }
+    100% { top: 100vh; }
+  }
+
+  /* SCROLL INDICATOR */
+  .scroll-indicator {
+    position: absolute; bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: fade-up 1s 1.2s ease both;
+  }
+
+  .scroll-indicator span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--neon-cyan), transparent);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* GLITCH EFFECT */
+  .glitch {
+    position: relative;
+  }
+
+  .glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: transparent;
+    -webkit-background-clip: text;
+  }
+
+  .glitch::before {
+    background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 50%, #ffffff 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: glitch-1 4s 2s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+
+  .glitch::after {
+    background: linear-gradient(135deg, var(--neon-magenta), var(--neon-gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: glitch-2 4s 2s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+
+  @keyframes glitch-1 {
+    0%, 95%, 100% { transform: none; opacity: 0; }
+    96% { transform: translateX(-4px) skewX(-2deg); opacity: 1; }
+    97% { transform: translateX(4px) skewX(2deg); opacity: 1; }
+    98% { transform: none; opacity: 0; }
+  }
+
+  @keyframes glitch-2 {
+    0%, 95%, 100% { transform: none; opacity: 0; }
+    96% { transform: translateX(4px) skewX(2deg); opacity: 1; }
+    97% { transform: translateX(-4px) skewX(-2deg); opacity: 1; }
+    98% { transform: none; opacity: 0; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .about-grid { gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { height: 300px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+    .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    .hero-stats { gap: 30px; flex-wrap: wrap; }
+    .form-row { grid-template-columns: 1fr; }
+    .modal-box { padding: 30px 20px; }
+    .contact-form-wrap { padding: 30px 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+  }
+
+  /* TYPING ANIMATION */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: var(--neon-cyan);
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- SCAN LINE -->
+<div class="scan-line" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<nav role="navigation" aria-label="Main navigation">
+  <a href="#home" class="nav-logo" aria-label="Codeanix Home">CODEANIX</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="openModal('Start Project')">Start Project</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#home" onclick="closeMobileMenu()">Home</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#products" onclick="closeMobileMenu()">Products</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#" onclick="openModal('Start Project'); closeMobileMenu();" style="color:var(--neon-cyan)">Start Project →</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles" id="particles" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-badge" aria-label="Tagline">▸ THE AVENGERS OF DIGITAL INNOVATION</div>
+    <h1 class="hero-title">
+      <span class="line1 glitch" data-text="CODEANIX">CODEANIX</span>
+      <span class="line2">FORGES THE FUTURE</span>
+    </h1>
+    <p class="hero-tagline">
+      From <span>holograms to heroes</span> — we build, market, and automate your success.<br>
+      Your brand deserves a cinematic revolution.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openModal('Start Project')" aria-label="Start your project with Codeanix">
+        <span>⚡ START YOUR PROJECT</span>
+      </button>
+      <a href="#services" class="btn-secondary" aria-label="Explore our services">EXPLORE SERVICES →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number" id="counter1">0</div>
+        <div class="stat-label">Projects Launched</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="counter2">0</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="counter3">0</div>
+        <div class="stat-label">Services Offered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="counter4">0</div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-label="About Codeanix">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual" aria-hidden="true">
+        <div class="about-hex about-hex-1"></div>
+        <div class="about-hex about-hex-2"></div>
+        <div class="about-hex about-hex-3"></div>
+        <div class="about-core">
+          <div class="about-core-text">CODE<br>ANIX</div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <h2>We Are The <span>Architects</span> of Your Digital Future</h2>
+        <p>Codeanix is not just a digital agency — we are a strike force of innovators, creators, and technologists united under one mission: to transform your brand into a cinematic force.</p>
+        <p>From intelligent AI automation to explosive social media campaigns, from immersive game worlds to precision-engineered web platforms — every project we touch becomes a masterpiece.</p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🔥</div>
+            <h4>Bold Vision</h4>
+            <p>Cinematic concepts that command attention</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">⚡</div>
+            <h4>Fast Delivery</h4>
+            <p>Precision-built solutions on deadline</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🤖</div>
+            <h4>AI-Powered</h4>
+            <p>Automation at the core of everything</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌐</div>
+            <h4>Global Scale</h4>
+            <p>Serving clients across 30+ countries</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" aria-label="Our Services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// OUR ARSENAL</span>
+      <h2 class="section-title">Cinematic <span class="accent">Service</span> Verticals</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+
+      <!-- Web & App Dev -->
+      <article class="service-card reveal" style="--card-accent:#00f5ff; --card-bg:linear-gradient(135deg,rgba(0,245,255,0.06),rgba(0,100,200,0.04)); --card-glow:radial-gradient(circle,rgba(0,245,255,0.1),transparent 70%);" onclick="openModal('Web & App Development')" role="button" tabindex="0" aria-label="Web and App Development service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:20%;animation-duration:3s;animation-delay:0s;--sdrift:30px;"></div>
+            <div class="scene-dot" style="left:50%;animation-duration:4s;animation-delay:1s;--sdrift:-20px;"></div>
+            <div class="scene-dot" style="left:80%;animation-duration:2.5s;animation-delay:0.5s;--sdrift:15px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">💻</span>
+        </div>
+        <div class="card-number">01 / 07</div>
+        <div class="card-subtitle">Architects of Innovation</div>
+        <h3 class="card-title">Web & App Development</h3>
+        <p class="card-desc">Futuristic holographic interfaces coded by expert architects who construct your digital empire from the ground up.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>Responsive Websites & PWAs</li>
+          <li>E-Commerce Platforms</li>
+          <li>SaaS Solutions</li>
+          <li>Native & Cross-Platform Mobile Apps</li>
+        </ul>
+        <button class="card-cta" aria-label="Start Web Development project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+      <!-- Social Media -->
+      <article class="service-card reveal" style="--card-accent:#ff00aa; --card-bg:linear-gradient(135deg,rgba(255,0,170,0.06),rgba(180,0,120,0.04)); --card-glow:radial-gradient(circle,rgba(255,0,170,0.1),transparent 70%);" onclick="openModal('Social Media Handling & Marketing')" role="button" tabindex="0" aria-label="Social Media Marketing service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:30%;animation-duration:3.5s;background:#ff00aa;--sdrift:-25px;"></div>
+            <div class="scene-dot" style="left:60%;animation-duration:2.8s;animation-delay:0.8s;background:#ff00aa;--sdrift:20px;"></div>
+            <div class="scene-dot" style="left:70%;animation-duration:4s;animation-delay:0.3s;background:#ff00aa;--sdrift:-15px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">📱</span>
+        </div>
+        <div class="card-number">02 / 07</div>
+        <div class="card-subtitle">Social Media Warriors</div>
+        <h3 class="card-title">Social Media & Marketing</h3>
+        <p class="card-desc">3D warriors projecting viral Instagram grids, explosive TikTok reels, and magnetic campaigns that dominate every feed.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>Content Calendars & Strategy</li>
+          <li>Influencer Collaborations</li>
+          <li>Ad Campaign Management</li>
+          <li>Analytics & Growth Reporting</li>
+        </ul>
+        <button class="card-cta" aria-label="Start Social Media project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+      <!-- Video Editing -->
+      <article class="service-card reveal" style="--card-accent:#ffd700; --card-bg:linear-gradient(135deg,rgba(255,215,0,0.06),rgba(200,140,0,0.04)); --card-glow:radial-gradient(circle,rgba(255,215,0,0.1),transparent 70%);" onclick="openModal('Video Editing & Animation')" role="button" tabindex="0" aria-label="Video Editing and Animation service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:25%;animation-duration:3s;background:#ffd700;--sdrift:20px;"></div>
+            <div class="scene-dot" style="left:55%;animation-duration:4.2s;animation-delay:0.6s;background:#ffd700;--sdrift:-30px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">🎬</span>
+        </div>
+        <div class="card-number">03 / 07</div>
+        <div class="card-subtitle">Visual Mastercraft Studio</div>
+        <h3 class="card-title">Video Editing & Animation</h3>
+        <p class="card-desc">Wielding glowing editing blades, our artists slice raw footage into cinematic masterpieces that leave audiences breathless.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>Motion Graphics & VFX</li>
+          <li>3D Animation & Rendering</li>
+          <li>Product Showcase Videos</li>
+          <li>Cinematic Brand Ads</li>
+        </ul>
+        <button class="card-cta" aria-label="Start Video project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+      <!-- AI Automation -->
+      <article class="service-card reveal" style="--card-accent:#39ff14; --card-bg:linear-gradient(135deg,rgba(57,255,20,0.06),rgba(0,180,0,0.04)); --card-glow:radial-gradient(circle,rgba(57,255,20,0.1),transparent 70%);" onclick="openModal('AI Automation')" role="button" tabindex="0" aria-label="AI Automation service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:20%;animation-duration:2.5s;background:#39ff14;--sdrift:25px;"></div>
+            <div class="scene-dot" style="left:50%;animation-duration:3.8s;animation-delay:1s;background:#39ff14;--sdrift:-20px;"></div>
+            <div class="scene-dot" style="left:80%;animation-duration:3s;animation-delay:0.4s;background:#39ff14;--sdrift:10px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">🤖</span>
+        </div>
+        <div class="card-number">04 / 07</div>
+        <div class="card-subtitle">AI Automation Command Center</div>
+        <h3 class="card-title">AI Automation</h3>
+        <p class="card-desc">A cybernetic AI core pulses at the center of your operations, orchestrating intelligent systems that work 24/7.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>Predictive Analytics Dashboards</li>
+          <li>Chatbot Deployment & Training</li>
+          <li>Workflow Automation</li>
+          <li>AI-Powered Lead Generation</li>
+        </ul>
+        <button class="card-cta" aria-label="Start AI Automation project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+      <!-- n8n Workflows -->
+      <article class="service-card reveal" style="--card-accent:#bf00ff; --card-bg:linear-gradient(135deg,rgba(191,0,255,0.06),rgba(120,0,200,0.04)); --card-glow:radial-gradient(circle,rgba(191,0,255,0.1),transparent 70%);" onclick="openModal('n8n Workflows')" role="button" tabindex="0" aria-label="n8n Workflow Automation service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:35%;animation-duration:3.2s;background:#bf00ff;--sdrift:-25px;"></div>
+            <div class="scene-dot" style="left:65%;animation-duration:4s;animation-delay:0.7s;background:#bf00ff;--sdrift:20px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">⚙️</span>
+        </div>
+        <div class="card-number">05 / 07</div>
+        <div class="card-subtitle">Automation Pipeline Masters</div>
+        <h3 class="card-title">n8n Workflows</h3>
+        <p class="card-desc">Orchestrating complex automation pipelines that connect every tool in your stack into one seamless operation.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>CRM & Sales Automation</li>
+          <li>Lead Funnel Pipelines</li>
+          <li>Social Media Scheduling</li>
+          <li>Cross-Platform Data Sync</li>
+        </ul>
+        <button class="card-cta" aria-label="Start n8n Workflow project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+      <!-- Game Development -->
+      <article class="service-card reveal" style="--card-accent:#ff6b00; --card-bg:linear-gradient(135deg,rgba(255,107,0,0.06),rgba(200,60,0,0.04)); --card-glow:radial-gradient(circle,rgba(255,107,0,0.1),transparent 70%);" onclick="openModal('Game Development')" role="button" tabindex="0" aria-label="Game Development service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:20%;animation-duration:3s;background:#ff6b00;--sdrift:30px;"></div>
+            <div class="scene-dot" style="left:60%;animation-duration:2.6s;animation-delay:0.5s;background:#ff6b00;--sdrift:-20px;"></div>
+            <div class="scene-dot" style="left:80%;animation-duration:4s;animation-delay:1.2s;background:#ff6b00;--sdrift:15px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">🎮</span>
+        </div>
+        <div class="card-number">06 / 07</div>
+        <div class="card-subtitle">Game Development Arena</div>
+        <h3 class="card-title">Game Development</h3>
+        <p class="card-desc">Warriors forge immersive game worlds in a virtual coliseum where every pixel is a battlefield of innovation.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>AR/VR Experiences</li>
+          <li>Immersive Storytelling</li>
+          <li>Multiplayer Mechanics</li>
+          <li>Mobile & Console Games</li>
+        </ul>
+        <button class="card-cta" aria-label="Start Game Development project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+      <!-- SEO/SMO -->
+      <article class="service-card reveal" style="--card-accent:#00ff88; --card-bg:linear-gradient(135deg,rgba(0,255,136,0.06),rgba(0,180,100,0.04)); --card-glow:radial-gradient(circle,rgba(0,255,136,0.1),transparent 70%);" onclick="openModal('SEO/SMO')" role="button" tabindex="0" aria-label="SEO and SMO service">
+        <div class="card-scene">
+          <div class="scene-glow"></div>
+          <div class="scene-particles" aria-hidden="true">
+            <div class="scene-dot" style="left:30%;animation-duration:3.4s;background:#00ff88;--sdrift:20px;"></div>
+            <div class="scene-dot" style="left:70%;animation-duration:2.8s;animation-delay:0.9s;background:#00ff88;--sdrift:-25px;"></div>
+          </div>
+          <span class="scene-icon" aria-hidden="true">📈</span>
+        </div>
+        <div class="card-number">07 / 07</div>
+        <div class="card-subtitle">SEO/SMO Strike Force</div>
+        <h3 class="card-title">SEO / SMO</h3>
+        <p class="card-desc">Neon-lit marketing warriors firing laser-targeted beams of creative energy to dominate every search ranking and algorithm.</p>
+        <ul class="card-features" aria-label="Service features">
+          <li>On-Page & Off-Page SEO</li>
+          <li>Technical SEO Audits</li>
+          <li>Social Media Optimization</li>
+          <li>Analytics & Performance Reporting</li>
+        </ul>
+        <button class="card-cta" aria-label="Start SEO project">Launch Project <span class="arrow">→</span></button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" aria-label="Our Products">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// DIGITAL ARSENAL</span>
+      <h2 class="section-title">Ready-Made <span class="accent">Products</span></h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="products-intro reveal">
+      <p>Battle-tested digital products engineered for instant deployment. Select your weapon of choice.</p>
+    </div>
+    <div class="products-grid">
+
+      <article class="product-card reveal" onclick="openModal('Codeanix Starter Kit')" role="button" tabindex="0" aria-label="Codeanix Starter Kit product" style="--p-c1:#00f5ff;--p-c2:#bf00ff;">
+        <div class="product-badge">STARTER</div>
+        <span class="product-icon" aria-hidden="true">🚀</span>
+        <h3 class="product-title">Codeanix Starter Kit</h3>
+        <p class="product-desc">Complete digital presence package — website, social setup, and 30-day automation. Everything to launch your brand.</p>
+        <div class="product-price">₹29,999 <span>/ one-time</span></div>
+        <button class="product-cta" aria-label="Get Starter Kit">GET STARTED →</button>
+      </article>
+
+      <article class="product-card reveal" onclick="openModal('AI Growth Engine')" role="button" tabindex="0" aria-label="AI Growth Engine product" style="--p-c1:#39ff14;--p-c2:#00f5ff;">
+        <div class="product-badge" style="color:#39ff14;border-color:rgba(57,255,20,0.3);background:rgba(57,255,20,0.1);">AI-POWERED</div>
+        <span class="product-icon" aria-hidden="true">🧠</span>
+        <h3 class="product-title">AI Growth Engine</h3>
+        <p class="product-desc">Full AI automation suite — chatbots, lead funnels, n8n workflows, predictive analytics. Your 24/7 digital workforce.</p>
+        <div class="product-price">₹59,999 <span>/ month</span></div>
+        <button class="product-cta" aria-label="Get AI Growth Engine">ACTIVATE ENGINE →</button>
+      </article>
+
+      <article class="product-card reveal" onclick="openModal('Cinematic Brand Package')" role="button" tabindex="0" aria-label="Cinematic Brand Package product" style="--p-c1:#ffd700;--p-c2:#ff00aa;">
+        <div class="product-badge" style="color:#ffd700;border-color:rgba(255,215,0,0.3);background:rgba(255,215,0,0.1);">PREMIUM</div>
+        <span class="product-icon" aria-hidden="true">🎬</span>
+        <h3 class="product-title">Cinematic Brand Package</h3>
+        <p class="product-desc">Full brand transformation — logo, videos, website, social media, SEO, and 3-month growth campaign.</p>
+        <div class="product-price">₹1,49,999 <span>/ package</span></div>
+        <button class="product-cta" aria-label="Get Cinematic Brand Package">LAUNCH BRAND →</button>
+      </article>
+
+      <article class="product-card reveal" onclick="openModal('Game Prototype')" role="button" tabindex="0" aria-label="Game Prototype product" style="--p-c1:#ff6b00;--p-c2:#ffd700;">
+        <div class="product-badge" style="color:#ff6b00;border-color:rgba(255,107,0,0.3);background:rgba(255,107,0,0.1);">GAME</div>
+        <span class="product-icon" aria-hidden="true">🎮</span>
+        <h3 class="product-title">Game Prototype Build</h3>
+        <p class="product-desc">Turn your game concept into a playable prototype in 30 days. Mobile, PC, or VR — we build worlds.</p>
+        <div class="product-price">₹89,999 <span>/ prototype</span></div>
+        <button class="product-cta" aria-label="Get Game Prototype">START BUILDING →</button>
+      </article>
+
+      <article class="product-card reveal" onclick="openModal('Social Media Domination')" role="button" tabindex="0" aria-label="Social Media Domination product" style="--p-c1:#ff00aa;--p-c2:#bf00ff;">
+        <div class="product-badge" style="color:#ff00aa;border-color:rgba(255,0,170,0.3);background:rgba(255,0,170,0.1);">VIRAL</div>
+        <span class="product-icon" aria-hidden="true">📱</span>
+        <h3 class="product-title">Social Domination Pack</h3>
+        <p class="product-desc">60-day social media blitz — daily content, reels, stories, ads, influencer outreach, and analytics reports.</p>
+        <div class="product-price">₹34,999 <span>/ 60 days</span></div>
+        <button class="product-cta" aria-label="Get Social Domination Pack">GO VIRAL →</button>
+      </article>
+
+      <article class="product-card reveal" onclick="openModal('SEO Blitz Campaign')" role="button" tabindex="0" aria-label="SEO Blitz Campaign product" style="--p-c1:#00ff88;--p-c2:#00f5ff;">
+        <div class="product-badge" style="color:#00ff88;border-color:rgba(0,255,136,0.3);background:rgba(0,255,136,0.1);">SEO</div>
+        <span class="product-icon" aria-hidden="true">📈</span>
+        <h3 class="product-title">SEO Blitz Campaign</h3>
+        <p class="product-desc">3-month full-spectrum SEO assault — technical audit, on-page optimization, link building, and rank tracking.</p>
+        <div class="product-price">₹24,999 <span>/ month</span></div>
+        <button class="product-cta" aria-label="Get SEO Blitz Campaign">RANK NOW →</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-label="Contact Codeanix">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">// INITIATE CONTACT</span>
+      <h2 class="section-title">Ready to <span class="accent">Transform</span> Your Brand?</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2>Let's Build Something <span>Legendary</span> Together</h2>
+        <p>Drop your mission brief and one of our digital commanders will contact you within 24 hours to discuss your project.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email Command</div>
+            <div class="contact-detail-text">codeanix01@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">📞</div>
+          <div>
+            <div class="contact-detail-label">Direct Line</div>
+            <div class="contact-detail-text">+91 7337612008</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">💬</div>
+          <div>
+            <div class="contact-detail-label">WhatsApp</div>
+            <div class="contact-detail-text">+91 7337612008</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon" aria-hidden="true">🌐</div>
+          <div>
+            <div class="contact-detail-label">Availability</div>
+            <div class="contact-detail-text">Mon – Sat, 9AM – 9PM IST</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <h3 class="form-title">// SUBMIT MISSION BRIEF</h3>
+        <form id="contactForm" onsubmit="submitForm(event)" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <div class="phone-wrap">
+              <select id="countryCode" name="countryCode" onchange="updateCurrency()" aria-label="Country code">
+                <option value="+91" data-currency="INR">🇮🇳 +91</option>
+                <option value="+1" data-currency="USD">🇺🇸 +1</option>
+                <option value="+44" data-currency="GBP">🇬🇧 +44</option>
+                <option value="+61" data-currency="AUD">🇦🇺 +61</option>
+                <option value="+49" data-currency="EUR">🇩🇪 +49</option>
+                <option value="+33" data-currency="EUR">🇫🇷 +33</option>
+                <option value="+971" data-currency="AED">🇦🇪 +971</option>
+                <option value="+65" data-currency="SGD">🇸🇬 +65</option>
+                <option value="+81" data-currency="JPY">🇯🇵 +81</option>
+                <option value="+55" data-currency="BRL">🇧🇷 +55</option>
+                <option value="+27" data-currency="ZAR">🇿🇦 +27</option>
+                <option value="+1-CA" data-currency="CAD">🇨🇦 +1</option>
+                <option value="+34" data-currency="EUR">🇪🇸 +34</option>
+                <option value="+7" data-currency="RUB">🇷🇺 +7</option>
+                <option value="+86" data-currency="CNY">🇨🇳 +86</option>
+                <option value="+82" data-currency="KRW">🇰🇷 +82</option>
+                <option value="+966" data-currency="SAR">🇸🇦 +966</option>
+                <option value="+60" data-currency="MYR">🇲🇾 +60</option>
+                <option value="+63" data-currency="PHP">🇵🇭 +63</option>
+                <option value="+62" data-currency="IDR">🇮🇩 +62</option>
+                <option value="+20" data-currency="EGP">🇪🇬 +20</option>
+                <option value="+234" data-currency="NGN">🇳🇬 +234</option>
+                <option value="+254" data-currency="KES">🇰🇪 +254</option>
+                <option value="+52" data-currency="MXN">🇲🇽 +52</option>
+                <option value="+54" data-currency="ARS">🇦🇷 +54</option>
+                <option value="+31" data-currency="EUR">🇳🇱 +31</option>
+                <option value="+46" data-currency="SEK">🇸🇪 +46</option>
+                <option value="+47" data-currency="NOK">🇳🇴 +47</option>
+                <option value="+45" data-currency="DKK">🇩🇰 +45</option>
+                <option value="+48" data-currency="PLN">🇵🇱 +48</option>
+                <option value="+90" data-currency="TRY">🇹🇷 +90</option>
+                <option value="+92" data-currency="PKR">🇵🇰 +92</option>
+                <option value="+880" data-currency="BDT">🇧🇩 +880</option>
+                <option value="+94" data-currency="LKR">🇱🇰 +94</option>
+                <option value="+977" data-currency="NPR">🇳🇵 +977</option>
+              </select>
+              <input type="tel" id="phone" name="phone" placeholder="Phone number" required aria-required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed *</label>
+            <select id="service" name="service" required aria-required="true">
+              <option value="" disabled selected>Select a service...</option>
+              <option>Web & App Development</option>
+              <option>Social Media Handling & Marketing</option>
+              <option>Video Editing & Animation</option>
+              <option>AI Automation</option>
+              <option>n8n Workflows</option>
+              <option>Game Development</option>
+              <option>SEO / SMO</option>
+              <option>Codeanix Starter Kit</option>
+              <option>AI Growth Engine</option>
+              <option>Cinematic Brand Package</option>
+              <option>Game Prototype Build</option>
+              <option>Social Domination Pack</option>
+              <option>SEO Blitz Campaign</option>
+              <option>Custom / Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Project Budget *</label>
+            <div class="budget-wrap">
+              <select id="currency" name="currency" aria-label="Currency">
+                <option value="INR">₹ INR</option>
+                <option value="USD">$ USD</option>
+                <option value="GBP">£ GBP</option>
+                <option value="EUR">€ EUR</option>
+                <option value="AED">AED</option>
+                <option value="SGD">SGD</option>
+                <option value="AUD">A$</option>
+                <option value="CAD">C$</option>
+                <option value="JPY">¥ JPY</option>
+                <option value="CNY">¥ CNY</option>
+                <option value="BRL">R$</option>
+                <option value="ZAR">R</option>
+                <option value="MYR">RM</option>
+                <option value="SAR">SAR</option>
+                <option value="KRW">₩</option>
+                <option value="PHP">₱</option>
+                <option value="IDR">IDR</option>
+                <option value="NGN">₦</option>
+                <option value="MXN">MX$</option>
+              </select>
+              <input type="number" id="budget" name="budget" placeholder="Enter your budget" min="0" aria-label="Budget amount">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Brief</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project, goals, and timeline..." rows="4" aria-label="Project description"></textarea>
+          </div>
+          <button type="submit" class="form-submit" aria-label="Submit project inquiry">
+            <span class="submit-text">⚡ LAUNCH MY PROJECT</span>
+          </button>
+        </form>
+        <div class="form-success" id="formSuccess" role="alert">
+          <div class="success-icon" aria-hidden="true">✅</div>
+          <h3>Mission Received!</h3>
+          <p>Our digital commanders will contact you within 24 hours at your provided email and phone number. Get ready to build something legendary.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo">CODEANIX</span>
+        <p>Forging the future in digital innovation. The Avengers of the digital world — we build, market, and automate your success story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services" onclick="openModal('Web & App Development')">Web & App Dev</a></li>
+          <li><a href="#services" onclick="openModal('Social Media Handling & Marketing')">Social Media</a></li>
+          <li><a href="#services" onclick="openModal('Video Editing & Animation')">Video Editing</a></li>
+          <li><a href="#services" onclick="openModal('AI Automation')">AI Automation</a></li>
+          <li><a href="#services" onclick="openModal('n8n Workflows')">n8n Workflows</a></li>
+          <li><a href="#services" onclick="openModal('Game Development')">Game Dev</a></li>
+          <li><a href="#services" onclick="openModal('SEO/SMO')">SEO / SMO</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Starter Kit</a></li>
+          <li><a href="#products">AI Growth Engine</a></li>
+          <li><a href="#products">Brand Package</a></li>
+          <li><a href="#products">Game Prototype</a></li>
+          <li><a href="#products">Social Pack</a></li>
+          <li><a href="#products">SEO Blitz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="mailto:codeanix01@gmail.com">Email Us</a></li>
+          <li><a href="tel:+917337612008">Call Us</a></li>
+          <li><a href="https://wa.me/917337612008" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Codeanix. All rights reserved. Forging the future, one project at a time.</p>
+      <div class="social-links" aria-label="Social media links">
+        <a href="https://wa.me/917337612008" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">💬</a>
+        <a href="mailto:codeanix01@gmail.com" class="social-link" aria-label="Email">✉️</a>
+        <a href="#" class="social-link" aria-label="Instagram">📸</a>
+        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+        <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- PROJECT FORM MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">✕</button>
+    <div class="modal-header">
+      <div class="modal-tag">// INITIATE PROJECT</div>
+      <h2 id="modalTitle">Start Your <span>Project</span></h2>
+    </div>
+    <form id="modalForm" onsubmit="submitModalForm(event)" novalidate aria-label="Project inquiry form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="m-name">Full Name *</label>
+          <input type="text" id="m-name" name="name" placeholder="Your name" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="m-email">Email Address *</label>
+          <input type="email" id="m-email" name="email" placeholder="your@email.com" required aria-required="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="m-phone">Phone Number *</label>
+        <div class="phone-wrap">
+          <select id="m-countryCode" name="countryCode" onchange="updateModalCurrency()" aria-label="Country code">
+            <option value="+91" data-currency="INR">🇮🇳 +91</option>
+            <option value="+1" data-currency="USD">🇺🇸 +1</option>
+            <option value="+44" data-currency="GBP">🇬🇧 +44</option>
+            <option value="+61" data-currency="AUD">🇦🇺 +61</option>
+            <option value="+49" data-currency="EUR">🇩🇪 +49</option>
+            <option value="+33" data-currency="EUR">🇫🇷 +33</option>
+            <option value="+971" data-currency="AED">🇦🇪 +971</option>
+            <option value="+65" data-currency="SGD">🇸🇬 +65</option>
+            <option value="+81" data-currency="JPY">🇯🇵 +81</option>
+            <option value="+55" data-currency="BRL">🇧🇷 +55</option>
+            <option value="+27" data-currency="ZAR">🇿🇦 +27</option>
+            <option value="+1-CA" data-currency="CAD">🇨🇦 +1</option>
+            <option value="+34" data-currency="EUR">🇪🇸 +34</option>
+            <option value="+7" data-currency="RUB">🇷🇺 +7</option>
+            <option value="+86" data-currency="CNY">🇨🇳 +86</option>
+            <option value="+82" data-currency="KRW">🇰🇷 +82</option>
+            <option value="+966" data-currency="SAR">🇸🇦 +966</option>
+            <option value="+60" data-currency="MYR">🇲🇾 +60</option>
+            <option value="+63" data-currency="PHP">🇵🇭 +63</option>
+            <option value="+62" data-currency="IDR">🇮🇩 +62</option>
+            <option value="+20" data-currency="EGP">🇪🇬 +20</option>
+            <option value="+234" data-currency="NGN">🇳🇬 +234</option>
+            <option value="+254" data-currency="KES">🇰🇪 +254</option>
+            <option value="+52" data-currency="MXN">🇲🇽 +52</option>
+            <option value="+54" data-currency="ARS">🇦🇷 +54</option>
+            <option value="+31" data-currency="EUR">🇳🇱 +31</option>
+            <option value="+46" data-currency="SEK">🇸🇪 +46</option>
+            <option value="+47" data-currency="NOK">🇳🇴 +47</option>
+            <option value="+48" data-currency="PLN">🇵🇱 +48</option>
+            <option value="+90" data-currency="TRY">🇹🇷 +90</option>
+            <option value="+92" data-currency="PKR">🇵🇰 +92</option>
+            <option value="+880" data-currency="BDT">🇧🇩 +880</option>
+            <option value="+94" data-currency="LKR">🇱🇰 +94</option>
+            <option value="+977" data-currency="NPR">🇳🇵 +977</option>
+          </select>
+          <input type="tel" id="m-phone" name="phone" placeholder="Phone number" required aria-required="true">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="m-service">Service Needed *</label>
+        <select id="m-service" name="service" required aria-required="true">
+          <option value="" disabled>Select a service...</option>
+          <option>Web & App Development</option>
+          <option>Social Media Handling & Marketing</option>
+          <option>Video Editing & Animation</option>
+          <option>AI Automation</option>
+          <option>n8n Workflows</option>
+          <option>Game Development</option>
+          <option>SEO / SMO</option>
+          <option>Codeanix Starter Kit</option>
+          <option>AI Growth Engine</option>
+          <option>Cinematic Brand Package</option>
+          <option>Game Prototype Build</option>
+          <option>Social Domination Pack</option>
+          <option>SEO Blitz Campaign</option>
+          <option>Custom / Multiple Services</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="m-budget">Project Budget</label>
+        <div class="budget-wrap">
+          <select id="m-currency" name="currency" aria-label="Currency">
+            <option value="INR">₹ INR</option>
+            <option value="USD">$ USD</option>
+            <option value="GBP">£ GBP</option>
+            <option value="EUR">€ EUR</option>
+            <option value="AED">AED</option>
+            <option value="SGD">SGD</option>
+            <option value="AUD">A$</option>
+            <option value="CAD">C$</option>
+            <option value="JPY">¥</option>
+            <option value="CNY">¥</option>
+            <option value="BRL">R$</option>
+            <option value="ZAR">R</option>
+            <option value="MYR">RM</option>
+            <option value="SAR">SAR</option>
+            <option value="NGN">₦</option>
+          </select>
+          <input type="number" id="m-budget" name="budget" placeholder="Enter your budget" min="0" aria-label="Budget amount">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="m-message">Project Brief</label>
+        <textarea id="m-message" name="message" placeholder="Describe your vision, goals, and timeline..." rows="3" aria-label="Project description"></textarea>
+      </div>
+      <button type="submit" class="form-submit" aria-label="Submit project inquiry">
+        <span class="submit-text">⚡ SUBMIT MISSION</span>
+      </button>
+    </form>
+    <div class="form-success" id="modalSuccess" role="alert">
+      <div class="success-icon" aria-hidden="true">🚀</div>
+      <h3>Mission Launched!</h3>
+      <p>Our team will reach out to you within 24 hours. Prepare for digital transformation.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // CURRENCY MAP
+  const currencyMap = {
+    INR: 'INR', USD: 'USD', GBP: 'GBP', AUD: 'AUD', EUR: 'EUR',
+    AED: 'AED', SGD: 'SGD', JPY: 'JPY', BRL: 'BRL', ZAR: 'ZAR',
+    CAD: 'CAD', RUB: 'RUB', CNY: 'CNY', KRW: 'KRW', SAR: 'SAR',
+    MYR: 'MYR', PHP: 'PHP', IDR: 'IDR', EGP: 'EGP', NGN: 'NGN',
+    KES: 'KES', MXN: 'MXN', ARS: 'ARS', SEK: 'SEK', NOK: 'NOK',
+    DKK: 'DKK', PLN: 'PLN', TRY: 'TRY', PKR: 'PKR', BDT: 'BDT',
+    LKR: 'LKR', NPR: 'NPR'
+  };
+
+  function setCurrencyFromCode(countrySelectId, currencySelectId) {
+    const cc = document.getElementById(countrySelectId);
+    const cur = document.getElementById(currencySelectId);
+    if (!cc || !cur) return;
+    const option = cc.options[cc.selectedIndex];
+    const currency = option.getAttribute('data-currency') || 'INR';
+    for (let i = 0; i < cur.options.length; i++) {
+      if (cur.options[i].value === currency) {
+        cur.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
+  function updateCurrency() { setCurrencyFromCode('countryCode', 'currency'); }
+  function updateModalCurrency() { setCurrencyFromCode('m-countryCode', 'm-currency'); }
+
+  // MODAL
+  function openModal(service) {
+    const modal = document.getElementById('modalOverlay');
+    const serviceSelect = document.getElementById('m-service');
+    document.getElementById('modalSuccess').style.display = 'none';
+    document.getElementById('modalForm').style.display = 'block';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (service && serviceSelect) {
+      for (let i = 0; i < serviceSelect.options.length; i++) {
+        if (serviceSelect.options[i].text === service || serviceSelect.options[i].text.includes(service.split(' ')[0])) {
+          serviceSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // FORM SUBMISSION
+  function buildEmailBody(data) {
+    return `
+New Project Inquiry from Codeanix Website
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.countryCode} ${data.phone}
+Service: ${data.service}
+Budget: ${data.currency} ${data.budget || 'Not specified'}
+Message: ${data.message || 'No additional details'}
+    `.trim();
+  }
+
+  function submitModalForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: document.getElementById('m-name').value,
+      email: document.getElementById('m-email').value,
+      countryCode: document.getElementById('m-countryCode').value,
+      phone: document.getElementById('m-phone').value,
+      service: document.getElementById('m-service').value,
+      currency: document.getElementById('m-currency').value,
+      budget: document.getElementById('m-budget').value,
+      message: document.getElementById('m-message').value,
+    };
+
+    if (!data.name || !data.email || !data.phone || !data.service) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Send via mailto as primary method
+    const subject = encodeURIComponent(`New Project Inquiry: ${data.service} — ${data.name}`);
+    const body = encodeURIComponent(buildEmailBody(data));
+    
+    // Trigger email
+    window.open(`mailto:codeanix01@gmail.com?subject=${subject}&body=${body}`, '_blank');
+
+    // Also open WhatsApp notification
+    const waMsg = encodeURIComponent(`New Codeanix Inquiry!\nName: ${data.name}\nService: ${data.service}\nPhone: ${data.countryCode} ${data.phone}\nEmail: ${data.email}\nBudget: ${data.currency} ${data.budget || 'N/A'}`);
+    setTimeout(() => window.open(`https://wa.me/917337612008?text=${waMsg}`, '_blank'), 500);
+
+    form.style.display = 'none';
+    document.getElementById('modalSuccess').style.display = 'block';
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const data = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      countryCode: document.getElementById('countryCode').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      currency: document.getElementById('currency').value,
+      budget: document.getElementById('budget').value,
+      message: document.getElementById('message').value,
+    };
+
+    if (!data.name || !data.email || !data.phone || !data.service) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const subject = encodeURIComponent(`New Project Inquiry: ${data.service} — ${data.name}`);
+    const body = encodeURIComponent(buildEmailBody(data));
+    window.open(`mailto:codeanix01@gmail.com?subject=${subject}&body=${body}`, '_blank');
+
+    const waMsg = encodeURIComponent(`New Codeanix Inquiry!\nName: ${data.name}\nService: ${data.service}\nPhone: ${data.countryCode} ${data.phone}\nEmail: ${data.email}\nBudget: ${data.currency} ${data.budget || 'N/A'}`);
+    setTimeout(() => window.open(`https://wa.me/917337612008?text=${waMsg}`, '_blank'), 500);
+
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  // CUSTOM CURSOR
+  const cursor = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursorDot');
+  let mx = 0, my = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx - 10 + 'px';
+    cursor.style.top = my - 10 + 'px';
+    cursorDot.style.left = mx - 3 + 'px';
+    cursorDot.style.top = my - 3 + 'px';
+  });
+
+  document.querySelectorAll('button, a, .service-card, .product-card, [role="button"]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(2)';
+      cursor.style.borderColor = 'var(--neon-magenta)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      cursor.style.borderColor = 'var(--neon-cyan)';
+    });
+  });
+
+  // PARTICLES
+  (function createParticles() {
+    const container = document.getElementById('particles');
+    const colors = ['var(--neon-cyan)', 'var(--neon-magenta)', 'var(--neon-gold)'];
+    for (let i = 0; i < 60; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        width: ${Math.random() * 3 + 1}px;
+        height: ${Math.random() * 3 + 1}px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration: ${Math.random() * 10 + 8}s;
+        animation-delay: ${Math.random() * 10}s;
+        --drift: ${(Math.random() - 0.5) * 100}px;
+        box-shadow: 0 0 6px currentColor;
+      `;
+      container.appendChild(p);
+    }
+  })();
+
+  // COUNTERS
+  function animateCounter(el, target, suffix = '+') {
+    let current = 0;
+    const duration = 2000;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current) + suffix;
+    }, 16);
+  }
+
+  let countersStarted = false;
+  const countersObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !countersStarted) {
+      countersStarted = true;
+      animateCounter(document.getElementById('counter1'), 250);
+      animateCounter(document.getElementById('counter2'), 180);
+      animateCounter(document.getElementById('counter3'), 7);
+      animateCounter(document.getElementById('counter4'), 30);
+    }
+  });
+  countersObserver.observe(document.querySelector('.hero-stats'));
+
+  // REVEAL ON SCROLL
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.1 + 's';
+    revealObserver.observe(el);
+  });
+
+  // MOBILE MENU
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') hamburger.click();
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // NAVBAR SCROLL
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(2,4,8,0.98)';
+      nav.style.borderBottomColor = 'rgba(0,245,255,0.15)';
+    } else {
+      nav.style.background = 'rgba(2,4,8,0.85)';
+      nav.style.borderBottomColor = 'rgba(0,245,255,0.1)';
+    }
+  });
+
+  // KEYBOARD SUPPORT FOR CARDS
+  document.querySelectorAll('[role="button"]').forEach(el => {
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  });
+
+  // MOUSE GLOW ON CARDS
+  document.querySelectorAll('.service-card, .product-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
+</script>
+</body>
+</html>
