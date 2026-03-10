@@ -2101,7 +2101,7 @@ Message: ${data.message || 'No additional details'}
 
     const subject = encodeURIComponent(`New Project Inquiry: ${data.service} — ${data.name}`);
     const body = encodeURIComponent(buildEmailBody(data));
-    window.open(`mailto:codeanix01@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    window.open(`mailto:enquiry@codeanix.com?subject=${subject}&body=${body}`, '_blank');
 
     const waMsg = encodeURIComponent(`New Codeanix Inquiry!\nName: ${data.name}\nService: ${data.service}\nPhone: ${data.countryCode} ${data.phone}\nEmail: ${data.email}\nBudget: ${data.currency} ${data.budget || 'N/A'}`);
     setTimeout(() => window.open(`https://wa.me/917337612008?text=${waMsg}`, '_blank'), 500);
